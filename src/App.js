@@ -1,9 +1,10 @@
 import React from 'react';
+import PlantDataChart from './components/PlantDataChart';
 
 const App = () => {
     return (
         <div>
-            <p>Hello Plant UI</p>
+            <PlantDataChart />
         </div>
     )
 }
