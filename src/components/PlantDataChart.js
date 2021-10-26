@@ -10,6 +10,10 @@ const PlantDataChart = () => {
         readMoistureReadings(onDataRead);
     }, [])
 
+    const onRefreshButtonPress = () => {
+        readMoistureReadings(onDataRead);
+    }
+
     const onDataRead = (items) => {
         //console.log(items);
         let i = 0;
@@ -28,12 +32,21 @@ const PlantDataChart = () => {
 
     return (
         <div>
+            <button className="ui button" onClick={onRefreshButtonPress}>Refresh</button>
             <Chart
-                width={'600px'}
-                height={'400px'}
+                width={'800px'}
+                height={'600px'}
                 chartType="LineChart"
                 loader={<div>Loading data visualization...</div>}
                 data={data}
+                options={{
+                    hAxis: {
+                        title: 'Reading #',
+                    },
+                    vAxis: {
+                        title: 'Moisture (V)',
+                    }
+                }}
             />
         </div>
     )
